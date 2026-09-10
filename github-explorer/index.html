@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore public GitHub repositories. Search developers, filter by language and sort by stars.">
+  <title>GitHub Repository Explorer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#search">Skip to search</a>
+  <header id="home">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Repository Explorer home"><span class="brand-icon" aria-hidden="true">⌘</span> repo<span class="brand-light">explorer</span><span class="brand-dot">.</span></a>
+      <nav aria-label="Main navigation"><a href="#home">Home</a><a href="#search">Search</a><a href="#about">About</a></nav>
+      <span class="header-note">Built for the curious.</span>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow"><span></span> A WINDOW INTO OPEN SOURCE</p>
+      <h1 id="hero-title">Great code starts<br>with <span>discovery.</span></h1>
+      <p class="hero-description">Explore a developer’s public repositories.<br>Find the languages, projects and ideas behind the profile.</p>
+    </section>
+    <section id="search" class="search-section" aria-labelledby="search-title">
+      <div class="section-label"><h2 id="search-title">Find a developer</h2><span>01 / EXPLORE</span></div>
+      <form id="search-form" novalidate>
+        <label for="username">GitHub username</label>
+        <div class="search-row"><div class="input-wrap"><span aria-hidden="true">@</span><input id="username" name="username" type="text" required maxlength="39" pattern="[A-Za-z0-9]+(-[A-Za-z0-9]+)*" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="e.g. octocat" aria-describedby="search-help validation-message"></div><button id="search-button" type="submit">Search repositories <span aria-hidden="true">↗</span></button></div>
+        <p id="search-help" class="help">Enter a username to explore their public work. No sign-in needed.</p>
+        <p id="validation-message" class="validation" role="alert" hidden></p>
+      </form>
+      <div class="try-row"><span>Try a profile</span><button type="button" data-username="octocat">octocat ↗</button><button type="button" data-username="sindresorhus">sindresorhus ↗</button><button type="button" data-username="torvalds">torvalds ↗</button></div>
+    </section>
+    <section class="results-section" aria-labelledby="results-title">
+      <div class="results-heading"><div><p class="eyebrow">THE COLLECTION</p><h2 id="results-title">Repositories <span id="repo-count">0</span></h2></div><a id="profile-link" target="_blank" rel="noopener noreferrer" hidden>View GitHub profile ↗</a></div>
+      <div id="toolbar" class="toolbar"><div class="control"><label for="language-filter">Language</label><select id="language-filter" disabled><option value="all">All languages</option></select></div><div class="control"><label for="sort-order">Sort by</label><select id="sort-order" disabled><option value="stars-desc">Stars: high to low</option><option value="stars-asc">Stars: low to high</option><option value="name-asc">Name: A–Z</option><option value="name-desc">Name: Z–A</option></select></div><p id="results-summary">Your next discovery is one search away.</p></div>
+      <div id="status" class="status-panel" role="status" aria-live="polite"><span class="state-icon" aria-hidden="true">⌕</span><h3>Every repository has a story.</h3><p>Search a GitHub username to start exploring.</p></div>
+      <div id="repository-grid" class="repository-grid" aria-busy="false"></div>
+    </section>
+    <section id="about" class="about-section" aria-labelledby="about-title"><div><p class="eyebrow">02 / ABOUT</p><h2 id="about-title">Open source.<br>Open possibilities.</h2></div><div><p>A simple way to explore the work people share on GitHub. Browse repositories, narrow the collection by language and let the most-starred projects rise to the top.</p><p class="help">Powered by the GitHub REST API. Only public repositories are shown. Your last searched username is remembered on this device.</p><a href="https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user" target="_blank" rel="noopener noreferrer">Explore the API documentation ↗</a></div></section>
+  </main>
+  <footer><span>repoexplorer<span class="brand-dot">.</span></span><p>A little curiosity goes a long way.</p><a href="#home">Back to top ↑</a></footer>
+</body>
+</html>
